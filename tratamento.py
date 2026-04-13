@@ -1,12 +1,12 @@
 import pandas as pd
 import re
 
-df = pd.read_csv('leads_pbm_ufas.csv', sep=';', encoding='utf-8')
+df = pd.read_csv('leads_pbm_ufas.csv', sep=';', encoding='utf-8') #lendo o arquivo .CSV
 print(f"Lido: {df.shape[0]} linhas, {df.shape[1]} colunas")
 
 def extrair_payload(texto):
     try:
-        texto = texto.replace('""', '"')
+        texto = texto.replace('""', '"')  #corringindo as aspas duplicadas do arquivo
         resultado = {}
         campos = ['source_platform','interesse_curso',
                   'nome_contato','email_contato']
@@ -22,15 +22,17 @@ def extrair_payload(texto):
 extraido = df['payload_json_banco_dados'].apply(extrair_payload)
 df = pd.concat([df, pd.DataFrame(list(extraido))], axis=1)
 
-df['data_hora_interacao'] = pd.to_datetime(df['data_hora_interacao'])
-df['interesse_curso'] = df['interesse_curso'].replace(
-    {',':'Não Informado','':'Não Informado'})
+df['data_hora_interacao'] = pd.to_datetime(df['data_hora_interacao']) #pd.to_datetime converte para tipo DATA, assim da pra utilizar as informações como se fosse realmente mês-dia-ano e hora
+df['interesse_curso'] = df['interesse_curso'].replace( #Aqui consistia que alguns campos vinham com virgula ou sem nada 
+    {',':'Não Informado','':'Não Informado'}) #Então para não poluir os gráficos com símbolo sem sentido eu substitui por 'Não informado', utilizando o replace
 
+
+#No arquivo tinha alguns termos não técnicos , como: "fb", "ig"
+#Então mapeie  e criei uma nova coluna "CANAL" , padronizando os nomes e colocando nomes técnicos
 canal_map = {'site':'Site Institucional','ig':'Instagram',
              'fb':'Facebook','landing_page':'Landing Page / Google'}
 df['canal'] = df['source_platform'].map(canal_map).fillna(
     df['source_platform'])
-
 df['mes_ano']    = df['data_hora_interacao'].dt.to_period('M').astype(str)
 df['mes_num']    = df['data_hora_interacao'].dt.month
 df['hora_dia']   = df['data_hora_interacao'].dt.hour
