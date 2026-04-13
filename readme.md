@@ -43,6 +43,7 @@ Além de uma coluna (`payload_json_banco_dados`) com json incorreto, exemplo:
 ```python
 pd.to_datetime(df['data_hora_interacao'])
 
+---
 
 ### 4. Limpeza e Padronização
 - Substituição de valores inválidos:
