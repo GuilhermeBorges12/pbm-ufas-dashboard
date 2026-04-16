@@ -134,4 +134,6 @@ Resumo mensal para análise:
 - Python
 - Pandas
 - Regex (re)
-- Power BI 
+- Power BI
+- Excel
+- Power Point
