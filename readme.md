@@ -1,7 +1,7 @@
 # Tratamento de Leads para Projeto de BI
 
 ## Descrição do Projeto
-Este projeto tem como objetivo realizar o tratamento de dados provenientes de um arquivo `.csv` contendo leads, com foco na preparação para análise em ferramentas de Business Intelligence (BI).
+Este projeto tem como objetivo realizar o tratamento de dados provenientes de um arquivo `.csv` contendo leads, com foco na preparação para análise em ferramentas de Business Intelligence (Power BI).
 
 Os dados originais apresentavam inconsistências, principalmente em uma coluna com estrutura semelhante a JSON, porém mal formatada. Foi desenvolvido um processo de limpeza, padronização e modelagem dos dados utilizando Python e a biblioteca Pandas.
 
@@ -117,7 +117,18 @@ Resumo mensal para análise:
 - `agg_mes.csv`
 
 ---
+## Dashboard BI 
+  #### Visão Geral
+ <img width="1436" height="813" alt="image" src="https://github.com/user-attachments/assets/8a20de75-fa10-4625-8db4-900fccc30ee8" />
 
+  #### Análise Mensal  
+  <img width="1434" height="808" alt="image" src="https://github.com/user-attachments/assets/8e36b329-b101-4e32-ab00-6fcf4afe1886" />
+
+  #### Canais de Comunicação
+  <img width="1429" height="809" alt="image" src="https://github.com/user-attachments/assets/5851e9fe-d775-4a15-a299-e399849d5797" />
+
+
+---
 ## Tecnologias Utilizadas
 
 - Python
