@@ -5,6 +5,8 @@ Este projeto tem como objetivo realizar o tratamento de dados provenientes de um
 
 Os dados originais apresentavam inconsistências, principalmente em uma coluna com estrutura semelhante a JSON, porém mal formatada. Foi desenvolvido um processo de limpeza, padronização e modelagem dos dados utilizando Python e a biblioteca Pandas.
 
+Toda a documentação do dashboard, o raciocínio adotado nas análises, a forma como foi aplicado no Power BI, também como a utilização da IA e os motivos para seu uso, encontram-se no arquivo **DocumentaçãoDashboard**.
+
 ---
 
 ## Problema Encontrado
